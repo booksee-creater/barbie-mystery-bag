@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ What's in Your Barbie Bag? ✨</title>
+
+<!-- Open Graph for Facebook/LinkedIn -->
+<meta property="og:title" content="✨ What's in Your Barbie Bag? ✨">
+<meta property="og:description" content="Discover your perfect Barbie bag combo! Every reveal is unique 💖">
+<meta property="og:image" content=https://github.com/booksee-creater/imgg/blob/Main/ezgif-barbie.webp?raw=true">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="✨ What's in Your Barbie Bag? ✨">
+<meta name="twitter:description" content="I got an amazing combo! What's in YOUR Barbie bag? 💖">
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Righteous&display=swap" rel="stylesheet">
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Fredoka',cursive;
+background:#ff1493;
+background-image:
+radial-gradient(circle at 20% 30%,rgba(255,105,180,0.4) 0%,transparent 50%),
+radial-gradient(circle at 80% 70%,rgba(255,215,0,0.3) 0%,transparent 50%);
+height:100vh;
+overflow:hidden;
+color:white;
+position:relative;
+transition:all 0.5s ease;
+}
+
+/* Gold background glow when ultra-rare appears */
+body.ultra-rare-bg{
+background:#ff1493;
+background-image:
+radial-gradient(circle at 50% 50%,rgba(255,215,0,0.7) 0%,transparent 70%),
+radial-gradient(circle at 20% 30%,rgba(255,215,0,0.5) 0%,transparent 50%),
+radial-gradient(circle at 80% 70%,rgba(255,215,0,0.5) 0%,transparent 50%);
+animation:golden-pulse 3s ease-in-out infinite;
+}
+
+@keyframes golden-pulse{
+0%,100%{filter:brightness(1)}
+50%{filter:brightness(1.2)}
+}
+
+@keyframes screen-shake{
+0%,100%{transform:translateX(0)}
+10%{transform:translateX(-10px)}
+20%{transform:translateX(10px)}
+30%{transform:translateX(-10px)}
+40%{transform:translateX(10px)}
+50%{transform:translateX(-8px)}
+60%{transform:translateX(8px)}
+70%{transform:translateX(-5px)}
+80%{transform:translateX(5px)}
+90%{transform:translateX(-2px)}
+}
+
+@keyframes screen-pulse{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.02)}
+}
+
+.container{
+position:relative;
+z-index:1;
+text-align:center;
+width:100%;
+max-width:1200px;
+margin:0 auto;
+padding:40px 20px 20px;
+display:flex;
+flex-direction:column;
+height:100vh;
+justify-content:space-between;
+}
+
+h1{
+font-family:'Righteous',cursive;
+font-size:clamp(36px,6vw,56px);
+margin:8px 0 5px;
+background:linear-gradient(135deg,#fff 0%,#ffd700 50%,#ff69b4 100%);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+animation:glow 3s ease-in-out infinite;
+letter-spacing:2px;
+line-height:1.1;
+}
+
+@keyframes glow{
+0%,100%{filter:drop-shadow(0 0 20px rgba(255,215,0,0.6))}
+50%{filter:drop-shadow(0 0 40px rgba(255,105,180,0.8))}
+}
+
+.tagline{
+font-size:clamp(16px,2.5vw,20px);
+margin-bottom:8px;
+color:#ffe6f6;
+text-shadow:0 2px 10px rgba(0,0,0,0.3);
+font-weight:600;
+}
+
+.stats-row{
+display:flex;
+gap:12px;
+justify-content:center;
+flex-wrap:wrap;
+margin-bottom:12px;
+}
+
+.stat-badge{
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(10px);
+padding:8px 16px;
+border-radius:20px;
+border:2px solid rgba(255,255,255,0.3);
+font-weight:700;
+font-size:14px;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
+white-space:nowrap;
+}
+
+.rare-badge{
+background:linear-gradient(135deg,#ffd700,#ffed4e);
+color:#ff1493;
+animation:shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer{
+0%,100%{box-shadow:0 0 20px rgba(255,215,0,0.6)}
+50%{box-shadow:0 0 30px rgba(255,215,0,0.9)}
+}
+
+.stage{
+position:relative;
+height:clamp(450px,50vh,580px);
+display:flex;
+align-items:center;
+justify-content:center;
+margin:10px 0;
+flex:1;
+}
+
+.bag-wrapper{
+position:relative;
+display:inline-block;
+z-index:5;
+}
+
+.bag{
+width:clamp(350px,40vw,480px);
+cursor:pointer;
+filter:drop-shadow(0 8px 30px rgba(255,215,0,0.5));
+z-index:5;
+transition:all .3s cubic-bezier(0.34,1.56,0.64,1);
+will-change:transform;
+}
+
+.bag:hover{
+transform:scale(1.08) rotate(-3deg);
+filter:drop-shadow(0 12px 40px rgba(255,215,0,0.8));
+}
+
+.bag-glow{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:120%;
+height:120%;
+background:radial-gradient(circle,rgba(255,215,0,0.4),transparent 70%);
+border-radius:50%;
+animation:pulse-glow 2s ease-in-out infinite;
+pointer-events:none;
+}
+
+/* FIRST TIME POPUP */
+.first-time-popup{
+position:absolute;
+top:-120px;
+left:50%;
+transform:translateX(-50%) scale(0);
+background:linear-gradient(135deg,#ffd700,#ffed4e);
+color:#ff1493;
+padding:15px 25px;
+border-radius:25px;
+font-weight:700;
+font-size:18px;
+box-shadow:0 8px 30px rgba(255,215,0,0.6);
+border:3px solid #ff69b4;
+z-index:20;
+white-space:nowrap;
+transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.first-time-popup.show{
+transform:translateX(-50%) scale(1);
+}
+
+.first-time-popup:after{
+content:'';
+position:absolute;
+bottom:-15px;
+left:50%;
+transform:translateX(-50%);
+width:0;
+height:0;
+border-left:15px solid transparent;
+border-right:15px solid transparent;
+border-top:15px solid #ffed4e;
+}
+
+@keyframes pulse-glow{
+0%,100%{transform:translate(-50%,-50%) scale(1);opacity:0.5}
+50%{transform:translate(-50%,-50%) scale(1.2);opacity:0.8}
+}
+
+.shake{animation:shake .6s cubic-bezier(0.36,0.07,0.19,0.97)}
+
+@keyframes shake{
+0%,100%{transform:rotate(0deg) scale(1)}
+25%{transform:rotate(-15deg) scale(1.05)}
+50%{transform:rotate(15deg) scale(1.1)}
+75%{transform:rotate(-10deg) scale(1.05)}
+}
+
+.item-wrapper{
+position:absolute;
+opacity:0;
+z-index:10;
+transform:translate(-50%, -50%);
+}
+
+.item-wrapper.show{
+opacity:1;
+animation:burst-out .4s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes burst-out{
+0%{
+opacity:0;
+transform:translate(-50%,-50%) scale(0);
+filter:brightness(2);
+}
+100%{
+opacity:1;
+transform:translate(-50%,-50%) scale(1);
+filter:brightness(1);
+}
+}
+
+/* Rarity reveal animations - blur and shake before showing */
+@keyframes reveal-blur{
+0%{
+filter:blur(20px) brightness(1.5);
+transform:translate(-50%,-50%) scale(0.8);
+}
+50%{
+filter:blur(15px) brightness(1.8);
+transform:translate(-50%,-50%) scale(0.9);
+}
+100%{
+filter:blur(0px) brightness(1);
+transform:translate(-50%,-50%) scale(1);
+}
+}
+
+@keyframes reveal-shake{
+0%,100%{transform:translate(-50%,-50%) translateX(0)}
+10%{transform:translate(-50%,-50%) translateX(-5px)}
+20%{transform:translate(-50%,-50%) translateX(5px)}
+30%{transform:translate(-50%,-50%) translateX(-5px)}
+40%{transform:translate(-50%,-50%) translateX(5px)}
+50%{transform:translate(-50%,-50%) translateX(-3px)}
+60%{transform:translate(-50%,-50%) translateX(3px)}
+70%{transform:translate(-50%,-50%) translateX(-2px)}
+80%{transform:translate(-50%,-50%) translateX(2px)}
+90%{transform:translate(-50%,-50%) translateX(-1px)}
+}
+
+.item-wrapper.revealing .item{
+animation:reveal-blur 1s ease-out, reveal-shake 0.6s ease-in-out;
+}
+
+/* Rarity flash overlay */
+.rarity-flash{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:80px;
+font-weight:900;
+font-family:'Righteous',cursive;
+color:white;
+text-shadow:0 0 20px rgba(255,215,0,1), 0 0 40px rgba(255,215,0,0.8);
+z-index:9999;
+pointer-events:none;
+opacity:0;
+animation:flash-appear 2.5s ease-out;
+}
+
+@keyframes flash-appear{
+0%{
+opacity:0;
+transform:translate(-50%,-50%) scale(0.5);
+}
+10%{
+opacity:1;
+transform:translate(-50%,-50%) scale(1.3);
+}
+20%{
+opacity:1;
+transform:translate(-50%,-50%) scale(1.1);
+}
+80%{
+opacity:1;
+transform:translate(-50%,-50%) scale(1);
+}
+100%{
+opacity:0;
+transform:translate(-50%,-50%) scale(0.8);
+}
+}
+
+.item{
+width:clamp(137px,17vw,206px);
+user-select:none;
+touch-action:none;
+filter:drop-shadow(0 8px 20px rgba(0,0,0,0.35));
+pointer-events:none;
+}
+
+/* Rare item - yellow glow pulse */
+.item-wrapper.has-rare.is-rare .item{
+animation:rare-glow 2s ease-in-out infinite;
+}
+
+@keyframes rare-glow{
+0%,100%{filter:drop-shadow(0 0 15px rgba(255,215,0,0.6)) drop-shadow(0 8px 20px rgba(0,0,0,0.35))}
+50%{filter:drop-shadow(0 0 30px rgba(255,215,0,1)) drop-shadow(0 8px 20px rgba(0,0,0,0.35))}
+}
+
+/* Ultra-rare item - rainbow glow pulse */
+.item-wrapper.has-rare.is-ultra-rare .item{
+animation:ultra-rare-glow 2s ease-in-out infinite;
+}
+
+@keyframes ultra-rare-glow{
+0%{filter:drop-shadow(0 0 20px rgba(255,0,255,0.8)) drop-shadow(0 8px 20px rgba(0,0,0,0.35))}
+25%{filter:drop-shadow(0 0 25px rgba(255,215,0,0.8)) drop-shadow(0 8px 20px rgba(0,0,0,0.35))}
+50%{filter:drop-shadow(0 0 30px rgba(0,255,255,0.8)) drop-shadow(0 8px 20px rgba(0,0,0,0.35))}
+75%{filter:drop-shadow(0 0 25px rgba(255,105,180,0.8)) drop-shadow(0 8px 20px rgba(0,0,0,0.35))}
+100%{filter:drop-shadow(0 0 20px rgba(255,0,255,0.8)) drop-shadow(0 8px 20px rgba(0,0,0,0.35))}
+}
+
+.rarity-tag{
+position:absolute;
+top:-15px;
+right:-15px;
+background:linear-gradient(135deg,#ffd700,#ffed4e);
+color:#ff1493;
+padding:8px 16px;
+border-radius:20px;
+font-weight:700;
+font-size:14px;
+box-shadow:0 4px 15px rgba(255,215,0,0.5);
+animation:bounce 1s ease-in-out infinite;
+z-index:10;
+}
+
+/* Sparkle effect for rare items */
+.item-wrapper.show.has-rare::before{
+content:'✨';
+position:absolute;
+top:-10px;
+left:-10px;
+font-size:20px;
+animation:sparkle-rotate 2s linear infinite;
+pointer-events:none;
+}
+
+.item-wrapper.show.has-rare::after{
+content:'✨';
+position:absolute;
+bottom:-10px;
+right:-10px;
+font-size:20px;
+animation:sparkle-rotate 2s linear infinite reverse;
+pointer-events:none;
+}
+
+@keyframes sparkle-rotate{
+0%{transform:rotate(0deg) scale(1);opacity:0.8}
+50%{transform:rotate(180deg) scale(1.2);opacity:1}
+100%{transform:rotate(360deg) scale(1);opacity:0.8}
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-5px)}
+}
+
+.buttons{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+padding-bottom:15px;
+}
+
+button{
+border:none;
+padding:12px 24px;
+border-radius:50px;
+font-family:'Fredoka';
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+background:linear-gradient(135deg,#ffd700,#ff69b4);
+color:white;
+text-shadow:0 1px 3px rgba(0,0,0,0.2);
+box-shadow:0 4px 15px rgba(255,105,180,0.3);
+transition:all .2s ease;
+position:relative;
+overflow:hidden;
+will-change:transform;
+}
+
+button:before{
+content:'';
+position:absolute;
+top:50%;
+left:50%;
+width:0;
+height:0;
+border-radius:50%;
+background:rgba(255,255,255,0.3);
+transform:translate(-50%,-50%);
+transition:width .4s,height .4s;
+}
+
+button:hover:before{width:250px;height:250px}
+
+button:hover{
+transform:translateY(-3px) scale(1.03);
+box-shadow:0 8px 20px rgba(255,105,180,0.5);
+}
+
+button:active{transform:translateY(-1px) scale(1.01)}
+
+.primary-btn{
+background:linear-gradient(135deg,#ff1493,#ff69b4,#ffd700);
+background-size:200% 200%;
+animation:gradient-shift 3s ease infinite;
+font-size:17px;
+padding:14px 28px;
+}
+
+@keyframes gradient-shift{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* MODAL SYSTEM */
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+z-index:2000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.modal.show{display:flex}
+
+.modal-content{
+background:linear-gradient(135deg,#ff1493,#ff69b4);
+padding:30px 25px;
+border-radius:25px;
+max-width:400px;
+width:100%;
+max-height:90vh;
+overflow-y:auto;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,0.6);
+border:3px solid #ffd700;
+}
+
+.modal h2{
+font-family:'Righteous';
+font-size:28px;
+margin-bottom:10px;
+color:white;
+text-shadow:0 2px 8px rgba(0,0,0,0.3);
+}
+
+.modal p{
+font-size:16px;
+margin-bottom:15px;
+line-height:1.4;
+}
+
+.share-buttons{
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-top:10px;
+}
+
+.share-btn{
+padding:14px 20px;
+font-size:15px;
+background:linear-gradient(135deg,#ffd700,#ff69b4);
+width:100%;
+}
+
+.close-modal{
+background:rgba(255,255,255,0.3);
+color:white;
+padding:12px 30px;
+margin-top:15px;
+font-size:15px;
+border:2px solid rgba(255,255,255,0.5);
+width:100%;
+}
+
+/* ACHIEVEMENT POPUP */
+.achievement-popup{
+position:fixed;
+top:100px;
+right:-400px;
+background:linear-gradient(135deg,#ffd700,#ffed4e);
+color:#ff1493;
+padding:20px 30px;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+z-index:2001;
+font-weight:700;
+border:3px solid #ff69b4;
+transition:right 0.5s cubic-bezier(0.34,1.56,0.64,1);
+max-width:300px;
+}
+
+.achievement-popup.show{right:20px}
+
+.achievement-popup .title{
+font-size:20px;
+margin-bottom:8px;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.achievement-popup .desc{
+font-size:14px;
+font-weight:600;
+opacity:0.9;
+}
+
+@media(max-width:768px){
+.container{padding:60px 15px 15px}
+h1{font-size:32px;margin:5px 0}
+.tagline{font-size:16px;margin-bottom:6px}
+.stats-row{gap:8px;margin-bottom:8px}
+.stat-badge{padding:6px 12px;font-size:13px}
+.stage{height:clamp(380px,45vh,480px)}
+.item{width:137px}
+.bag{width:350px}
+button{padding:10px 20px;font-size:14px}
+.primary-btn{font-size:16px;padding:12px 24px}
+.buttons{gap:8px;padding-bottom:10px}
+.share-buttons{grid-template-columns:1fr}
+.modal-content{padding:25px 20px;max-width:95%}
+.modal h2{font-size:24px}
+.modal p{font-size:14px}
+.share-btn{padding:12px 16px;font-size:14px}
+.close-modal{padding:10px 20px;font-size:14px}
+.first-time-popup{font-size:15px;padding:12px 20px;top:-100px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>✨ What's in Your<br>Barbie Bag? ✨</h1>
+<div class="tagline">Every reveal is unique! 💖</div>
+
+<div class="stats-row">
+<div class="stat-badge">🎯 <span id="totalOpens">0</span> Bags Opened</div>
+<div class="stat-badge rare-badge" id="rareCount" style="display:none">⭐ <span id="rareNum">0</span> Rare Items!</div>
+</div>
+
+<div class="stage" id="stage">
+
+<div class="bag-wrapper">
+<div class="bag-glow"></div>
+<div class="first-time-popup" id="firstTimePopup">👆 Click the bag to start! ✨</div>
+<img id="bag" class="bag" alt="Mystery Bag"
+src="https://github.com/booksee-creater/imgg/blob/Main/ezgif-barbie.webp?raw=true">
+</div>
+
+<div class="item-wrapper"><img class="item" alt="Item 1"></div>
+<div class="item-wrapper"><img class="item" alt="Item 2"></div>
+<div class="item-wrapper"><img class="item" alt="Item 3"></div>
+<div class="item-wrapper"><img class="item" alt="Item 4"></div>
+
+</div>
+
+<div class="buttons">
+<button onclick="openBag()">🔄 Shake Again</button>
+<button onclick="downloadBag()">📥 Download</button>
+<button onclick="showShareModal()">💖 Share</button>
+</div>
+
+</div>
+
+<!-- Share Modal -->
+<div class="modal" id="shareModal">
+<div class="modal-content">
+<h2>💖 Share Your Bag!</h2>
+<p>Your bag is ready to share anywhere you like!</p>
+<div class="share-buttons">
+<button class="share-btn" onclick="shareToSocial()">📤 Share Now</button>
+<button class="share-btn" onclick="downloadAndShare()">📥 Download Image</button>
+</div>
+<button class="close-modal" onclick="closeShareModal()">Close</button>
+</div>
+</div>
+
+<!-- Achievement Popup -->
+<div class="achievement-popup" id="achievementPopup">
+<div class="title"><span id="achievementIcon">🏆</span> <span id="achievementTitle">Achievement!</span></div>
+<div class="desc" id="achievementDesc">You did something cool!</div>
+</div>
+
+<script>
+
+// ITEM DATABASE with rarity
+const allItems=[
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/9a90abcc-205f-4f12-831a-f6cf0d0d455a.png",name:"Sparkle Lipstick",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/New_bag.png",name:"pink bag",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/3947a987-f587-47d1-9f06-027857c544da.png",name:"Pink Sunglasses",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Plans%20planner.png",name:"Dream Planner",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Ring.png",name:"Diamond Ring",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Silk%20.png",name:"Silk Scarf",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Planner.png",name:"Fashion Planner",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Clio.png",name:"Makeup Palette",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Jade%20roller.png",name:"Jade Roller",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Curler.png",name:"Hair Curler",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Mini%20mag.png",name:"Mini Magazine",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Band.png",name:"Hair Band",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Sketch.png",name:"Sketch Book",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Bracelet%20.png",name:"Bracelet",rarity:"common"},
+{url:"https://github.com/booksee-creater/imgg/blob/Main/1Clutcher_NEW.png?raw=true",name:"Clutcher",rarity:"common"},
+{url:"https://github.com/booksee-creater/imgg/blob/Main/1scrunchie.png?raw=true",name:"scrunchie",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Filer.png",name:"Nail Filer",rarity:"common"},
+{url:"https://github.com/booksee-creater/imgg/blob/Main/1Mist_NEW.png?raw=true",name:"Face Mist",rarity:"common"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Tape.png",name:"Washi Tape",rarity:"rare"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Tag.png",name:"Gift Tag",rarity:"rare"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Stapler.png",name:"Mini Stapler",rarity:"rare"},
+{url:"https://github.com/booksee-creater/imgg/blob/Main/1Sponge_NEW.png?raw=true",name:"Beauty Sponge",rarity:"rare"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/Socks.png",name:"Cozy Socks",rarity:"ultra-rare"},
+{url:"https://github.com/booksee-creater/imgg/blob/Main/1Gloves_NEW.png?raw=true",name:"Silk Gloves",rarity:"ultra-rare"},
+{url:"https://raw.githubusercontent.com/booksee-creater/imgg/refs/heads/Main/compact%20.png",name:"Luxury Compact",rarity:"ultra-rare"}
+]
+
+// State
+let comboCount=0
+let totalOpens=0
+let rareItemsFound=0
+let currentCombo=[]
+let isFirstTime=true
+
+// Sound effects using Web Audio API
+const audioContext=new (window.AudioContext||window.webkitAudioContext)()
+
+function playShakeSound(){
+const oscillator=audioContext.createOscillator()
+const gainNode=audioContext.createGain()
+oscillator.connect(gainNode)
+gainNode.connect(audioContext.destination)
+oscillator.frequency.value=200
+oscillator.type='sine'
+gainNode.gain.setValueAtTime(0.3,audioContext.currentTime)
+gainNode.gain.exponentialRampToValueAtTime(0.01,audioContext.currentTime+0.1)
+oscillator.start(audioContext.currentTime)
+oscillator.stop(audioContext.currentTime+0.1)
+}
+
+function playPopSound(){
+const oscillator=audioContext.createOscillator()
+const gainNode=audioContext.createGain()
+oscillator.connect(gainNode)
+gainNode.connect(audioContext.destination)
+oscillator.frequency.value=800
+oscillator.type='sine'
+gainNode.gain.setValueAtTime(0.2,audioContext.currentTime)
+gainNode.gain.exponentialRampToValueAtTime(0.01,audioContext.currentTime+0.2)
+oscillator.start(audioContext.currentTime)
+oscillator.stop(audioContext.currentTime+0.2)
+}
+
+function playRareSound(){
+const oscillator=audioContext.createOscillator()
+const gainNode=audioContext.createGain()
+oscillator.connect(gainNode)
+gainNode.connect(audioContext.destination)
+oscillator.frequency.setValueAtTime(523,audioContext.currentTime)
+oscillator.frequency.setValueAtTime(659,audioContext.currentTime+0.1)
+oscillator.frequency.setValueAtTime(784,audioContext.currentTime+0.2)
+oscillator.type='sine'
+gainNode.gain.setValueAtTime(0.15,audioContext.currentTime)
+gainNode.gain.exponentialRampToValueAtTime(0.01,audioContext.currentTime+0.3)
+oscillator.start(audioContext.currentTime)
+oscillator.stop(audioContext.currentTime+0.3)
+}
+
+// Make bag clickable
+document.getElementById('bag').onclick=openBag
+
+// Show first-time popup after a short delay
+setTimeout(()=>{
+if(isFirstTime){
+document.getElementById('firstTimePopup').classList.add('show')
+}
+},500)
+
+function openBag(){
+const bag=document.getElementById('bag')
+const itemWrappers=document.querySelectorAll('.item-wrapper')
+
+// Play shake sound
+playShakeSound()
+
+// Hide first-time popup on first click
+if(isFirstTime){
+document.getElementById('firstTimePopup').classList.remove('show')
+isFirstTime=false
+}
+
+// Reset items
+itemWrappers.forEach(w=>{
+w.classList.remove('show')
+w.classList.remove('has-rare')
+w.classList.remove('revealing')
+w.classList.remove('is-rare')
+w.classList.remove('is-ultra-rare')
+})
+
+// Shake animation
+bag.classList.add('shake')
+setTimeout(()=>bag.classList.remove('shake'),600)
+
+// Shake animation
+bag.classList.add('shake')
+setTimeout(()=>bag.classList.remove('shake'),600)
+
+// Increment counters
+comboCount++
+totalOpens++
+document.getElementById('totalOpens').textContent=totalOpens
+
+// Shuffle and select 4 UNIQUE items with RARITY WEIGHTING
+let shuffled=[...allItems]
+let selected=[]
+
+// Weight-based selection: common 85%, rare 14.5%, ultra-rare 0.5%
+for(let attempt=0;attempt<4 && selected.length<4;attempt++){
+let availableItems=shuffled.filter(item=>!selected.includes(item))
+if(availableItems.length===0)break
+
+let item
+const rand=Math.random()*100
+
+if(rand<85){
+// 85% chance - Common items only
+let commonItems=availableItems.filter(it=>it.rarity==='common')
+if(commonItems.length>0){
+item=commonItems[Math.floor(Math.random()*commonItems.length)]
+}else{
+// Fallback to any available
+item=availableItems[Math.floor(Math.random()*availableItems.length)]
+}
+}else if(rand<99.5){
+// 14.5% chance - Rare items (85-99.5%)
+let rareItems=availableItems.filter(it=>it.rarity==='rare')
+if(rareItems.length>0){
+item=rareItems[Math.floor(Math.random()*rareItems.length)]
+}else{
+// Fallback to common
+let commonItems=availableItems.filter(it=>it.rarity==='common')
+item=commonItems.length>0?commonItems[Math.floor(Math.random()*commonItems.length)]:availableItems[0]
+}
+}else{
+// 0.5% chance - Ultra-rare items (99.5-100%) - VERY RARE!
+let ultraRareItems=availableItems.filter(it=>it.rarity==='ultra-rare')
+if(ultraRareItems.length>0){
+item=ultraRareItems[Math.floor(Math.random()*ultraRareItems.length)]
+}else{
+// Fallback to common
+let commonItems=availableItems.filter(it=>it.rarity==='common')
+item=commonItems.length>0?commonItems[Math.floor(Math.random()*commonItems.length)]:availableItems[0]
+}
+}
+
+if(item)selected.push(item)
+}
+
+currentCombo=selected
+
+// Count rares in this combo
+const raresInCombo=selected.filter(it=>it.rarity!=='common').length
+if(raresInCombo>0){
+rareItemsFound+=raresInCombo
+document.getElementById('rareNum').textContent=rareItemsFound
+document.getElementById('rareCount').style.display='block'
+}
+
+// Count rare and ultra-rare separately for flash message
+const rareCount = selected.filter(it=>it.rarity==='rare').length
+const ultraRareCount = selected.filter(it=>it.rarity==='ultra-rare').length
+
+// Show combo flash if any rares/ultra-rares (only once, not per item)
+if(rareCount > 0 || ultraRareCount > 0){
+showRarityFlash(rareCount, ultraRareCount)
+}
+
+// Get bag center position for item burst
+const rect=bag.getBoundingClientRect()
+const centerX=rect.left+rect.width/2
+const centerY=rect.top+rect.height/2
+
+itemWrappers.forEach((wrapper,i)=>{
+const img=wrapper.querySelector('.item')
+const item=selected[i]
+
+img.src=item.url
+img.alt=item.name
+
+// Start at bag center
+wrapper.style.left=centerX+'px'
+wrapper.style.top=centerY+'px'
+
+// Remove old rarity tags
+const oldTag=wrapper.querySelector('.rarity-tag')
+if(oldTag)oldTag.remove()
+
+// Add rarity tag if rare
+if(item.rarity==='rare'){
+const tag=document.createElement('div')
+tag.className='rarity-tag'
+tag.textContent='⭐ RARE'
+wrapper.appendChild(tag)
+wrapper.classList.add('has-rare','is-rare')
+}else if(item.rarity==='ultra-rare'){
+const tag=document.createElement('div')
+tag.className='rarity-tag'
+tag.textContent='💎 ULTRA RARE'
+tag.style.background='linear-gradient(135deg,#ff1493,#ff69b4)'
+tag.style.color='white'
+wrapper.appendChild(tag)
+wrapper.classList.add('has-rare','is-ultra-rare')
+}
+
+// Burst out - correct diagonal positioning
+setTimeout(()=>{
+// Add revealing class for blur/shake animation
+wrapper.classList.add('revealing')
+
+// Play pop sound
+playPopSound()
+
+// Play rare sound for rare items
+if(item.rarity!=='common'){
+setTimeout(playRareSound,100)
+}
+
+// Remove revealing class and add show class after blur animation
+setTimeout(()=>{
+wrapper.classList.remove('revealing')
+wrapper.classList.add('show')
+},800) // Wait for blur/shake to complete
+
+// Top items: closer horizontally, EXTREMELY far up (diagonal corners)
+// Side items: CLOSER horizontally (reduced spacing), less up (side positions)
+const topHorizontal = window.innerWidth < 768 ? 80 : 110      // CLOSER for diagonal
+const topVertical = window.innerWidth < 768 ? 400 : 400       // EXTREMELY HIGH UP for top
+
+const sideHorizontal = window.innerWidth < 768 ? 90 : 130     // REDUCED from 130 to 90
+const sideVertical = window.innerWidth < 768 ? 40 : 60        // Less up
+
+if(i===0){
+// Top-left DIAGONAL (closer horizontal, EXTREMELY high vertical)
+wrapper.style.left=(centerX-topHorizontal)+'px'
+wrapper.style.top=(centerY-topVertical)+'px'
+}else if(i===1){
+// Top-right DIAGONAL (closer horizontal, EXTREMELY high vertical)
+wrapper.style.left=(centerX+topHorizontal)+'px'
+wrapper.style.top=(centerY-topVertical)+'px'
+}else if(i===2){
+// Left SIDE (CLOSER horizontal, less vertical)
+wrapper.style.left=(centerX-sideHorizontal)+'px'
+wrapper.style.top=(centerY-sideVertical)+'px'
+}else{
+// Right SIDE (CLOSER horizontal, less vertical)
+wrapper.style.left=(centerX+sideHorizontal)+'px'
+wrapper.style.top=(centerY-sideVertical)+'px'
+}
+
+console.log(`Item ${i}: left=${wrapper.style.left}, top=${wrapper.style.top}`)
+},100*i)
+})
+
+// Effects
+setTimeout(()=>{
+// Check if any rare or ultra-rare items
+const hasRare=selected.some(it=>it.rarity==='rare')
+const hasUltraRare=selected.some(it=>it.rarity==='ultra-rare')
+
+confettiExplosion(hasRare,hasUltraRare)
+showHearts()
+
+// Add golden background glow for ultra-rare
+if(hasUltraRare){
+document.body.classList.add('ultra-rare-bg')
+setTimeout(()=>document.body.classList.remove('ultra-rare-bg'),4000)
+}
+},300)
+
+// Achievements
+checkAchievements()
+}
+
+function confettiExplosion(isRare=false,isUltraRare=false){
+const rect=document.getElementById('bag').getBoundingClientRect()
+const cx=rect.left+rect.width/2
+const cy=rect.top+rect.height/2
+
+// Different colors based on rarity
+let colors=['#ffd700','#ff69b4','#ff1493']
+let particleCount=30
+let velocityMultiplier=1
+
+if(isUltraRare){
+colors=['#ffd700','#ff1493','#00ffff','#ff69b4','#ffed4e'] // Rainbow colors
+particleCount=80 // MASSIVE explosion
+velocityMultiplier=1.8
+}else if(isRare){
+colors=['#ffd700','#ffed4e','#fff'] // Gold colors
+particleCount=50 // More confetti
+velocityMultiplier=1.3
+}
+
+for(let i=0;i<particleCount;i++){
+const p=document.createElement('div')
+p.style.position='absolute'
+p.style.width='6px'
+p.style.height='6px'
+p.style.background=colors[Math.floor(Math.random()*colors.length)]
+p.style.borderRadius='50%'
+p.style.pointerEvents='none'
+p.style.zIndex='999'
+
+const angle=Math.random()*Math.PI*2
+const velocity=(4+Math.random()*6)*velocityMultiplier
+let vx=Math.cos(angle)*velocity
+let vy=Math.sin(angle)*velocity-2
+let x=cx,y=cy
+
+p.style.left=x+'px'
+p.style.top=y+'px'
+document.body.appendChild(p)
+
+let frame=0
+function animate(){
+if(frame>40){p.remove();return}
+vy+=0.3
+x+=vx
+y+=vy
+p.style.left=x+'px'
+p.style.top=y+'px'
+p.style.opacity=1-(frame/40)
+frame++
+requestAnimationFrame(animate)
+}
+setTimeout(()=>animate(),i)
+}
+}
+
+function showHearts(){
+const rect=document.getElementById('bag').getBoundingClientRect()
+const cx=rect.left+rect.width/2
+const cy=rect.top+rect.height/2
+
+for(let i=0;i<6;i++){
+const heart=document.createElement('div')
+heart.textContent='💖'
+heart.style.position='absolute'
+heart.style.fontSize='20px'
+heart.style.pointerEvents='none'
+heart.style.zIndex='999'
+heart.style.left=cx+'px'
+heart.style.top=cy+'px'
+
+document.body.appendChild(heart)
+
+const angle=(i/6)*Math.PI*2
+const dist=60
+
+heart.animate([
+{opacity:1,transform:'translate(-50%,-50%) scale(0)'},
+{opacity:0,transform:`translate(${Math.cos(angle)*dist-50}px,${Math.sin(angle)*dist-50}px) scale(1)`}
+],{duration:400,easing:'ease-out'}).onfinish=()=>heart.remove()
+}
+}
+
+// Show rarity flash text overlay with combo detection
+function showRarityFlash(rareCount, ultraRareCount){
+const flash=document.createElement('div')
+flash.className='rarity-flash'
+
+// Determine message based on counts
+let message = ''
+let gradient = ''
+
+if(rareCount + ultraRareCount === 4){
+// All 4 are rare/ultra-rare - JACKPOT!
+message = '💎 JACKPOT! 💎'
+gradient = 'linear-gradient(45deg, #ff1493, #ffd700, #00ffff, #ff69b4)'
+// Screen shake effect
+document.body.style.animation = 'screen-shake 0.5s ease'
+setTimeout(()=>document.body.style.animation='',500)
+}else if(ultraRareCount > 0 && rareCount > 0){
+// Mix of ultra-rare and rare
+message = '💎 LEGENDARY! 💎'
+gradient = 'linear-gradient(45deg, #ff1493, #ffd700, #00ffff)'
+}else if(ultraRareCount > 1){
+// Multiple ultra-rares (extremely rare!)
+message = '🌟 IMPOSSIBLE! 🌟'
+gradient = 'linear-gradient(45deg, #ff1493, #ffd700, #00ffff, #ff69b4)'
+}else if(ultraRareCount === 1){
+// Single ultra-rare
+message = '💎 ULTRA RARE!'
+gradient = 'linear-gradient(45deg, #ff1493, #ffd700, #00ffff)'
+}else if(rareCount === 3){
+// Triple rare
+message = '🔥 TRIPLE RARE! 🔥'
+gradient = 'linear-gradient(45deg, #ffd700, #ffed4e, #ff69b4)'
+// Screen pulse effect
+document.body.style.animation = 'screen-pulse 1s ease'
+setTimeout(()=>document.body.style.animation='',1000)
+}else if(rareCount === 2){
+// Double rare
+message = '✨ DOUBLE RARE! ✨'
+gradient = 'linear-gradient(45deg, #ffd700, #ffed4e)'
+}else if(rareCount === 1){
+// Single rare
+message = '⭐ RARE!'
+gradient = 'linear-gradient(45deg, #ffd700, #ffed4e)'
+}
+
+flash.textContent = message
+flash.style.background = gradient
+flash.style.webkitBackgroundClip = 'text'
+flash.style.webkitTextFillColor = 'transparent'
+flash.style.backgroundClip = 'text'
+
+document.body.appendChild(flash)
+
+// Remove after 2.5 seconds
+setTimeout(()=>flash.remove(),2500)
+}
+
+// ACHIEVEMENTS
+function checkAchievements(){
+if(comboCount===1){
+showAchievement('🎉','First Timer!','You opened your first Barbie bag!')
+}else if(comboCount===5){
+showAchievement('🔥','Bag Enthusiast!','5 bags opened! You\'re hooked!')
+}else if(comboCount===10){
+showAchievement('💎','Collector!','10 bags! You\'re a true collector!')
+}else if(rareItemsFound===1){
+showAchievement('⭐','Lucky Star!','You found your first rare item!')
+}else if(rareItemsFound===5){
+showAchievement('🌟','Rare Hunter!','5 rare items found!')
+}
+}
+
+function showAchievement(icon,title,desc){
+document.getElementById('achievementIcon').textContent=icon
+document.getElementById('achievementTitle').textContent=title
+document.getElementById('achievementDesc').textContent=desc
+const popup=document.getElementById('achievementPopup')
+popup.classList.add('show')
+setTimeout(()=>popup.classList.remove('show'),4000)
+}
+
+// SHARE MODAL
+function showShareModal(){
+if(currentCombo.length===0){
+alert('Open a bag first!')
+return
+}
+document.getElementById('shareModal').classList.add('show')
+}
+
+function closeShareModal(){
+document.getElementById('shareModal').classList.remove('show')
+}
+
+// DOWNLOAD
+function downloadBag(){
+if(currentCombo.length===0){
+alert('Open a bag first!')
+return
+}
+
+const itemWrappers=document.querySelectorAll('.item-wrapper')
+const bag=document.getElementById('bag')
+const rect=bag.getBoundingClientRect()
+const centerX=rect.left+rect.width/2
+const centerY=rect.top+rect.height/2
+
+// Store original positions and remove animation class
+const originalStates=[]
+itemWrappers.forEach((wrapper,i)=>{
+originalStates.push({
+transition:wrapper.style.transition,
+animation:wrapper.style.animation
+})
+wrapper.style.transition='none'
+wrapper.style.animation='none'
+
+// DOWNLOAD LAYOUT - items 0&1 at 320px up (80% higher)
+const topHorizontal=window.innerWidth<768?80:110
+const topVertical=window.innerWidth<768?320:320  // 80% higher than before
+const sideHorizontal=window.innerWidth<768?90:130
+const sideVertical=window.innerWidth<768?40:60
+
+if(i===0){
+wrapper.style.left=(centerX-topHorizontal)+'px'
+wrapper.style.top=(centerY-topVertical)+'px'
+wrapper.style.opacity='1'
+}else if(i===1){
+wrapper.style.left=(centerX+topHorizontal)+'px'
+wrapper.style.top=(centerY-topVertical)+'px'
+wrapper.style.opacity='1'
+}else if(i===2){
+wrapper.style.left=(centerX-sideHorizontal)+'px'
+wrapper.style.top=(centerY-sideVertical)+'px'
+wrapper.style.opacity='1'
+}else{
+wrapper.style.left=(centerX+sideHorizontal)+'px'
+wrapper.style.top=(centerY-sideVertical)+'px'
+wrapper.style.opacity='1'
+}
+})
+
+// Wait a frame for positions to apply, then capture
+setTimeout(()=>{
+// Make sure bag is visible during capture
+const bag=document.getElementById('bag')
+bag.style.opacity='1'
+bag.style.visibility='visible'
+bag.style.display='block'
+
+html2canvas(document.querySelector('.stage'),{
+useCORS:true,
+scale:2,
+backgroundColor:'#ff1493',
+logging:false,
+allowTaint:true
+}).then(canvas=>{
+// Restore original states
+itemWrappers.forEach((wrapper,i)=>{
+wrapper.style.transition=originalStates[i].transition
+wrapper.style.animation=originalStates[i].animation
+})
+
+const link=document.createElement('a')
+link.download='ezgif-barbie.webp'
+link.href=canvas.toDataURL('image/png',1.0)
+link.click()
+})
+},100)
+}
+
+// DOWNLOAD AND SHARE - Single function
+function downloadAndShare(){
+downloadBag()
+closeShareModal()
+}
+
+// SHARE TO SOCIAL - Simplified and instant
+function shareToSocial(){
+if(currentCombo.length===0){
+alert('Open a bag first!')
+return
+}
+
+// Just download - fast and simple
+downloadBag()
+closeShareModal()
+
+// Helpful message after download
+setTimeout(()=>{
+alert('✨ Image saved! Share it from your gallery to Instagram, Facebook, or anywhere! 💖')
+},500)
+}
+
+// Remove platform-specific functions
+
+// Close modal on outside click
+document.getElementById('shareModal').addEventListener('click',e=>{
+if(e.target.id==='shareModal')closeShareModal()
+})
+
+</script>
+
+</body>
+</html>
